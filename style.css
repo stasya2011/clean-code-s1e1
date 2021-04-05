@@ -5,61 +5,73 @@ body {
   font-family: Lato, sans-serif;
 }
 
-.aaa {
+.title {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
 
-.aaa img {
+.title .title__img {
   width: 100%;
 }
 
-.aaa .more_inf {
+.title .title__link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width:768px) {
 
-  .aaa {
+  .title {
     text-align: center;
   }
 
 }
 
-.centered-main-page-element {
+.list {
   display: block;
   width: 500px;
   margin: 0 auto 0;
 }
 
-.task {
+.list__task {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
 
-.task-row-wrapper {
+.list__wrapper {
   display: flex;
 }
 
-ul {
+
+.list__storage_unfinished,
+.list__finished {
   margin: 0;
   padding: 0px;
 }
 
-li,
-h3 {
+.list__storage_finished > .list__item,
+.list__storage_unfinished > .list__item,
+.list__storage>.list__title,
+.list__btn_edit,
+.list__btn_delete,
+.list__btn_addition {
   list-style: none;
 }
 
-input,
-button {
+
+
+.list__item > .list__task,
+.list__btn_edit,
+.list__btn_delete,
+.list__btn_addition {
   outline: none;
 }
 
-button {
+.list__btn_edit,
+.list__btn_delete,
+.list__btn_addition {
   background: none;
   border: 0px;
   color: #888;
@@ -69,12 +81,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  color: #3a3a3a;
+.list__btn_edit:hover,
+.list__btn_delete:hover,
+.list__btn_addition:hover {
+  color: #1d1b1b;
 }
 
 /* Heading */
-h3,
+.list__title,
 label[for="new-task"] {
   color: #333;
   font-weight: 700;
@@ -98,8 +112,8 @@ input[type="text"] {
   color: #888;
 }
 
-input[type="text"]:focus {
-  color: #333;
+.list__task_text:focus {
+  color: rgb(228, 27, 27);
 }
 
 /* New Task */
@@ -108,15 +122,16 @@ label[for="new-task"] {
   margin: 0 0 20px;
 }
 
-input#new-task {
+#new-task {
   width: 318px;
 }
+
 
 /* Task list */
 li {
   overflow: hidden;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(180, 173, 173, 0.712);
 
   display: flex;
   justify-content: space-between;
@@ -128,7 +143,7 @@ li>* {
 }
 
 li>input[type="checkbox"] {
-  margin: 0 10px;
+  margin: 0 10px; 
 }
 
 li>label {
@@ -142,13 +157,13 @@ li>input[type="text"] {
   width: 226px;
 }
 
-button.delete img {
+.list__btn_delete img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-button.delete img:hover {
+.list__btn_delete img:hover {
   transform: rotateZ(0);
 }
 
@@ -163,11 +178,11 @@ ul li input[type=text] {
   display: none;
 }
 
-ul li.editMode input[type=text] {
+ul .list__item_editMode input[type=text] {
   display: inline-block;
   width: 224px;
 }
 
-ul li.editMode label {
+ul .list__item_editMode label {
   display: none;
 }
